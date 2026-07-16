@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIGITRACKER — Remote Workforce Management by DIGI5Y</title>
+  <meta name="description" content="Real-time time tracking, screen capture, KPI management and live team dashboards for remote teams. Built for agencies and distributed workforces." />
+  <meta property="og:title" content="DIGITRACKER — Remote Workforce Management" />
+  <meta property="og:description" content="Real-time time tracking, screen capture, KPI management and live team dashboards for remote teams." />
+  <meta property="og:url" content="https://digitracker.digi5y.co" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    :root {
+      --bg:        #0a0d14;
+      --surface:   #111520;
+      --border:    rgba(255,255,255,.08);
+      --violet:    #7c3aed;
+      --violet-lt: #8b5cf6;
+      --violet-hi: #a78bfa;
+      --text:      #f1f5f9;
+      --muted:     rgba(241,245,249,.45);
+      --radius-lg: 1rem;
+      --radius-xl: 1.25rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      background: rgba(10,13,20,.8);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 4rem;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: .625rem;
+    }
+    .nav-brand img { width: 2rem; height: 2rem; border-radius: .5rem; object-fit: contain; }
+    .nav-brand-name { font-weight: 700; font-size: .875rem; letter-spacing: -.01em; }
+    .nav-brand-by { font-size: .7rem; color: var(--muted); margin-left: .25rem; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--violet);
+      color: #fff;
+      font-size: .8125rem;
+      font-weight: 600;
+      padding: .5rem 1.125rem;
+      border-radius: .625rem;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--violet-lt); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: 5.5rem 0 4rem;
+      text-align: center;
+    }
+    .hero-orb {
+      position: absolute;
+      top: -10rem; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .375rem .875rem;
+      border: 1px solid rgba(124,58,237,.35);
+      background: rgba(124,58,237,.1);
+      border-radius: 9999px;
+      font-size: .75rem; font-weight: 500;
+      color: var(--violet-hi);
+      margin-bottom: 1.75rem;
+    }
+    .hero-badge-dot {
+      width: .4375rem; height: .4375rem;
+      border-radius: 50%; background: var(--violet-hi);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: .4; }
+    }
+    h1 {
+      font-size: clamp(2.25rem, 6vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #a78bfa 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.0625rem; color: var(--muted);
+      max-width: 36rem; margin: 0 auto 2.25rem;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: .75rem;
+    }
+    .btn-secondary {
+      display: inline-block;
+      padding: .75rem 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: .75rem;
+      font-size: .875rem; font-weight: 600;
+      color: rgba(241,245,249,.75);
+      transition: border-color .15s, color .15s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,.25); color: var(--text); }
+    .btn-lg {
+      padding: .875rem 2rem; border-radius: .875rem;
+      font-size: .9375rem; font-weight: 700;
+      box-shadow: 0 8px 24px rgba(124,58,237,.28);
+    }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; text-align: center;
+    }
+    .stat-value { font-size: 1.75rem; font-weight: 900; color: var(--violet-hi); }
+    .stat-label { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
+
+    /* ── Features ── */
+    .features { padding: 5rem 0; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; margin-bottom: .5rem; }
+    .section-header p { color: var(--muted); font-size: .875rem; max-width: 30rem; margin: 0 auto; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+      gap: 1.125rem;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      transition: border-color .2s, background .2s;
+    }
+    .feature-card:hover {
+      border-color: rgba(124,58,237,.35);
+      background: rgba(124,58,237,.05);
+    }
+    .feature-icon { font-size: 1.625rem; margin-bottom: 1rem; }
+    .feature-title { font-size: .9375rem; font-weight: 600; margin-bottom: .5rem; }
+    .feature-desc { font-size: .8125rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── CTA block ── */
+    .cta-section { padding: 4rem 0 5rem; }
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid rgba(124,58,237,.25);
+      border-radius: 1.5rem;
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .cta-box h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; margin-bottom: 1rem; }
+    .cta-box p { color: var(--muted); font-size: .9375rem; max-width: 32rem; margin: 0 auto 2rem; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: .75rem;
+      font-size: .75rem; color: var(--muted);
+    }
+    .footer-brand { display: flex; align-items: center; gap: .5rem; }
+    .footer-brand img { width: 1.25rem; height: 1.25rem; border-radius: .25rem; object-fit: contain; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 auto; max-width: 64rem;
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 4rem 0 3rem; }
+      .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .btn-lg { width: 100%; text-align: center; }
+      .btn-secondary { width: 100%; text-align: center; }
+      .hero-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <img src="logo.png" alt="DIGITRACKER logo" />
+          <span class="nav-brand-name">DIGITRACKER</span>
+          <span class="nav-brand-by">by DIGI5Y</span>
+        </div>
+        <a href="https://login.digitracker.digi5y.co" class="btn-primary">Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        Remote Workforce Management
+      </div>
+
+      <h1>
+        Your team,<br>
+        <span class="hero-gradient">tracked in real time.</span>
+      </h1>
+
+      <p class="hero-sub">
+        DIGITRACKER gives managers complete visibility over remote staff —
+        time logs, screen captures, KPI submissions, and leave requests,
+        all in one platform.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://login.digitracker.digi5y.co" class="btn-primary btn-lg">
+          Sign In to Dashboard
+        </a>
+        <a href="#features" class="btn-secondary btn-lg">
+          See Features
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── Stats ── -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div>
+          <div class="stat-value">2 min</div>
+          <div class="stat-label">Heartbeat interval</div>
+        </div>
+        <div>
+          <div class="stat-value">Real-time</div>
+          <div class="stat-label">Team status updates</div>
+        </div>
+        <div>
+          <div class="stat-value">3-tier</div>
+          <div class="stat-label">Role access control</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything in one platform</h2>
+        <p>Built for remote-first teams that need accountability without micromanagement.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⏱</div>
+          <div class="feature-title">Live Time Tracking</div>
+          <p class="feature-desc">Clock in/out with real-time heartbeat monitoring. Automatic stale-session detection keeps hours accurate even if the browser closes unexpectedly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📸</div>
+          <div class="feature-title">Screen Capture Audit</div>
+          <p class="feature-desc">Random screenshots taken between the 11th–18th minute of each session. Proof of work built into the workflow — no manual uploads required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Live Team Dashboard</div>
+          <p class="feature-desc">Admins see every team member's status, hours worked, and last heartbeat in real time. No page refresh needed — powered by Supabase Realtime.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <div class="feature-title">Leave &amp; Time Off</div>
+          <p class="feature-desc">Staff submit leave requests in-app. Managers approve or decline with a single click. Leave balances update automatically in real time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <div class="feature-title">Tasks &amp; KPIs</div>
+          <p class="feature-desc">Assign tasks, set daily KPI targets, and require staff to submit daily updates before clocking out. Accountability built directly into the workflow.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <div class="feature-title">Multi-Account Ready</div>
+          <p class="feature-desc">One platform, multiple sub-accounts. Super-admins can visit any account without separate logins. Ideal for agencies and franchise operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Built for distributed teams</h2>
+        <p>
+          Whether you manage 5 or 500 remote staff across multiple companies,
+          DIGITRACKER gives you the visibility and control you need —
+          without spreadsheets or manual timesheets.
+        </p>
+        <a href="https://login.digitracker.digi5y.co" class="btn-primary btn-lg">
+          Access Your Dashboard
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="logo.png" alt="" aria-hidden="true" />
+          <span>DIGITRACKER by DIGI5Y</span>
+        </div>
+        <span>© <script>document.write(new Date().getFullYear())</script> DIGI5Y. All rights reserved.</span>
+        <a href="https://login.digitracker.digi5y.co" style="color:inherit;opacity:.6;">Sign In →</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — DIGITRACKER by DIGI5Y</title>
+  <meta name="description" content="How DIGI5Y collects, uses, and protects your data across DIGITRACKER, the Digi5y AI-CRM, and our GoHighLevel Marketplace integration." />
+  <meta property="og:title" content="Privacy Policy — DIGITRACKER by DIGI5Y" />
+  <meta property="og:description" content="How DIGI5Y collects, uses, and protects your data across DIGITRACKER, the Digi5y AI-CRM, and our GoHighLevel Marketplace integration." />
+  <meta property="og:url" content="https://digitracker.digi5y.co/digitracker_privacy_policy/" />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="../logo.png" type="image/png" />
+  <style>
+    :root {
+      --bg:        #0a0d14;
+      --surface:   #111520;
+      --border:    rgba(255,255,255,.08);
+      --violet:    #7c3aed;
+      --violet-lt: #8b5cf6;
+      --violet-hi: #a78bfa;
+      --text:      #f1f5f9;
+      --muted:     rgba(241,245,249,.45);
+      --radius-lg: 1rem;
+      --radius-xl: 1.25rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* ── Nav (identical to the homepage) ── */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      background: rgba(10,13,20,.8);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 4rem;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: .625rem;
+    }
+    .nav-brand img { width: 2rem; height: 2rem; border-radius: .5rem; object-fit: contain; }
+    .nav-brand-name { font-weight: 700; font-size: .875rem; letter-spacing: -.01em; }
+    .nav-brand-by { font-size: .7rem; color: var(--muted); margin-left: .25rem; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--violet);
+      color: #fff;
+      font-size: .8125rem;
+      font-weight: 600;
+      padding: .5rem 1.125rem;
+      border-radius: .625rem;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--violet-lt); }
+
+    /* ── Legal content ── */
+    .legal-hero {
+      padding: 3.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .375rem .875rem;
+      border: 1px solid rgba(124,58,237,.35);
+      background: rgba(124,58,237,.1);
+      border-radius: 9999px;
+      font-size: .75rem; font-weight: 500;
+      color: var(--violet-hi);
+      margin-bottom: 1.25rem;
+    }
+    .legal-hero h1 {
+      font-size: clamp(1.875rem, 4vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -.02em;
+      margin-bottom: .75rem;
+    }
+    .legal-updated { color: var(--muted); font-size: .875rem; }
+
+    .legal-body { padding: 3rem 0 5rem; }
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 15rem 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .legal-toc {
+      position: sticky; top: 5.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      padding: 1.25rem;
+    }
+    .legal-toc-label {
+      font-size: .6875rem; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: .75rem;
+    }
+    .legal-toc ol {
+      list-style: none;
+      display: flex; flex-direction: column; gap: .5rem;
+      counter-reset: toc;
+    }
+    .legal-toc a {
+      font-size: .8125rem; color: rgba(241,245,249,.7);
+      transition: color .15s;
+      display: block;
+    }
+    .legal-toc a:hover { color: var(--violet-hi); }
+
+    .legal-sections { max-width: 42rem; }
+    .legal-intro {
+      font-size: 1rem; color: rgba(241,245,249,.8);
+      margin-bottom: 2.5rem;
+    }
+    .legal-section { padding: 1.75rem 0; border-top: 1px solid var(--border); }
+    .legal-section:first-of-type { border-top: none; padding-top: 0; }
+    .legal-section h2 {
+      font-size: 1.125rem; font-weight: 800;
+      margin-bottom: .875rem;
+      scroll-margin-top: 5.5rem;
+    }
+    .legal-section h3 {
+      font-size: .9375rem; font-weight: 700;
+      color: var(--violet-hi);
+      margin: 1.25rem 0 .5rem;
+    }
+    .legal-section p { font-size: .875rem; color: rgba(241,245,249,.72); margin-bottom: .875rem; }
+    .legal-section ul { padding-left: 1.125rem; margin-bottom: .875rem; }
+    .legal-section li { font-size: .875rem; color: rgba(241,245,249,.72); margin-bottom: .5rem; }
+    .legal-section li::marker { color: var(--violet-hi); }
+    .legal-section code {
+      font-size: .75rem; background: rgba(124,58,237,.12);
+      color: var(--violet-hi); padding: .125rem .375rem; border-radius: .3125rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .legal-callout {
+      border: 1px solid rgba(124,58,237,.3);
+      background: rgba(124,58,237,.08);
+      border-radius: var(--radius-lg);
+      padding: 1.125rem 1.25rem;
+      margin: 1rem 0 0;
+    }
+    .legal-callout p { color: rgba(241,245,249,.85); margin: 0; font-size: .8125rem; }
+
+    .legal-notice {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: .75rem; color: var(--muted);
+    }
+
+    /* ── Footer (identical to the homepage) ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 0;
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: .75rem;
+      font-size: .75rem; color: var(--muted);
+    }
+    .footer-brand { display: flex; align-items: center; gap: .5rem; }
+    .footer-brand img { width: 1.25rem; height: 1.25rem; border-radius: .25rem; object-fit: contain; }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 800px) {
+      .legal-layout { grid-template-columns: 1fr; }
+      .legal-toc { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">
+          <img src="../logo.png" alt="DIGITRACKER logo" />
+          <span class="nav-brand-name">DIGITRACKER</span>
+          <span class="nav-brand-by">by DIGI5Y</span>
+        </a>
+        <a href="https://digitracker-app.digi5y.co" class="btn-primary">Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Legal hero ── -->
+  <section class="legal-hero">
+    <div class="container">
+      <div class="legal-eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: August 25, 2026</p>
+    </div>
+  </section>
+
+  <!-- ── Legal body ── -->
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-layout">
+
+        <nav class="legal-toc" aria-label="Table of contents">
+          <div class="legal-toc-label">On this page</div>
+          <ol>
+            <li><a href="#who-we-are">1. Who We Are</a></li>
+            <li><a href="#information-we-collect">2. Information We Collect</a></li>
+            <li><a href="#digi5y-ai-crm">3. Use Within Digi5y AI-CRM</a></li>
+            <li><a href="#how-we-use">4. How We Use Information</a></li>
+            <li><a href="#legal-basis">5. Legal Basis for Processing</a></li>
+            <li><a href="#sharing">6. How We Share Information</a></li>
+            <li><a href="#isolation">7. Data Isolation Between Workspaces</a></li>
+            <li><a href="#retention">8. Data Retention</a></li>
+            <li><a href="#security">9. Security</a></li>
+            <li><a href="#cookies">10. Cookies &amp; Tracking</a></li>
+            <li><a href="#international">11. International Data Transfers</a></li>
+            <li><a href="#children">12. Children's Privacy</a></li>
+            <li><a href="#choices">13. Your Choices &amp; Rights</a></li>
+            <li><a href="#changes">14. Changes to This Policy</a></li>
+            <li><a href="#contact">15. Contact Us</a></li>
+          </ol>
+        </nav>
+
+        <div class="legal-sections">
+          <p class="legal-intro">
+            This Privacy Policy explains how DIGI5Y ("we", "us", "our") collects, uses, discloses,
+            and protects information when you use DIGITRACKER — our remote-workforce management
+            platform — whether accessed directly at
+            <code>digitracker-app.digi5y.co</code>, embedded within the <strong>Digi5y AI-CRM</strong>,
+            or connected to GoHighLevel through our Marketplace App integration. By using
+            DIGITRACKER in any of these contexts, you agree to the practices described below.
+          </p>
+
+          <section class="legal-section" id="who-we-are">
+            <h2>1. Who We Are</h2>
+            <p>
+              DIGITRACKER is developed and operated by DIGI5Y. DIGI5Y also builds and operates the
+              <strong> Digi5y AI-CRM</strong>, our customer-relationship-management platform used by
+              agencies and businesses to run marketing, sales, and client-communication workflows.
+              DIGITRACKER is offered both as a standalone product and as a workforce-management
+              module made available to Digi5y AI-CRM customers — this policy governs your data in
+              either case.
+            </p>
+          </section>
+
+          <section class="legal-section" id="information-we-collect">
+            <h2>2. Information We Collect</h2>
+            <h3>Account &amp; workspace data</h3>
+            <p>
+              Name, work email, role, phone number, country, reporting schedule, department, and
+              other profile fields you or your administrator provide when creating a DIGITRACKER
+              account or sub-account.
+            </p>
+            <h3>Work activity data</h3>
+            <p>
+              Clock in/out times, idle and lunch status, periodic screen captures (where enabled by
+              your administrator), task and KPI submissions, leave requests and supporting
+              documents, payroll records entered by your administrator, and internal message-board
+              posts.
+            </p>
+            <h3>Billing data</h3>
+            <p>
+              Company name, billing email, plan, and subscription status. Card details are collected
+              and processed directly by our payment processor (Stripe) — we never receive or store
+              full card numbers ourselves.
+            </p>
+            <h3>GoHighLevel / Digi5y AI-CRM integration data</h3>
+            <p>
+              When an administrator connects DIGITRACKER to a GHL sub-account (including a Digi5y
+              AI-CRM workspace, which runs on GoHighLevel infrastructure), we receive and store: the
+              location ID, an OAuth access token and refresh token (used only to maintain the
+              connection — never shown to any user), and contact records (name, email, phone) sent to
+              us via webhook events. We request the following scopes, each limited strictly to the
+              integration features described in DIGITRACKER's Settings page:
+              <code>contacts.readonly</code>, <code>contacts.write</code>,
+              <code>locations.readonly</code>, and <code>users.readonly</code>.
+            </p>
+          </section>
+
+          <section class="legal-section" id="digi5y-ai-crm">
+            <h2>3. Use Within Digi5y AI-CRM</h2>
+            <p>
+              Digi5y AI-CRM customers can enable DIGITRACKER as an integrated workforce-management
+              module for their own team and their agency's clients. When DIGITRACKER is used this
+              way:
+            </p>
+            <ul>
+              <li>Your Digi5y AI-CRM contacts can be mirrored into DIGITRACKER as potential team
+              members, using the same GHL integration scopes described above.</li>
+              <li>Time-tracking, task, KPI, and leave data created in DIGITRACKER remains scoped to
+              your workspace and is not merged into, or made searchable from, unrelated Digi5y
+              AI-CRM accounts.</li>
+              <li>Authentication is handled by DIGITRACKER directly (Supabase Auth); the Digi5y
+              AI-CRM does not receive your DIGITRACKER password or session tokens.</li>
+              <li>Disconnecting the integration, from either product, stops all further data flow
+              between them going forward.</li>
+            </ul>
+            <div class="legal-callout">
+              <p>
+                In short: the Digi5y AI-CRM is DIGI5Y's own CRM product, built on GoHighLevel. When
+                you use DIGITRACKER inside it, the same protections in this policy apply — the CRM
+                relationship does not grant broader access to your workforce data than a standalone
+                GHL Marketplace connection would.
+              </p>
+            </div>
+          </section>
+
+          <section class="legal-section" id="how-we-use">
+            <h2>4. How We Use Information</h2>
+            <ul>
+              <li>To operate core DIGITRACKER features: time tracking, task and KPI management,
+              leave management, HR document storage, and payroll records.</li>
+              <li>To mirror GHL / Digi5y AI-CRM contacts as potential team members inside your
+              DIGITRACKER workspace, when the integration is connected.</li>
+              <li>To keep your GHL connection active (OAuth token refresh) and to reflect
+              install/uninstall events automatically.</li>
+              <li>To notify workspace Admins and Super-Admins of account and subscription events
+              (e.g. new signups, leave requests, payment failures).</li>
+              <li>To process subscription payments and send order confirmations and invoices.</li>
+              <li>To provide customer support and diagnose technical issues.</li>
+            </ul>
+            <p>We do not sell personal information, and we do not use your data — from
+            DIGITRACKER, GHL, or the Digi5y AI-CRM — for third-party advertising.</p>
+          </section>
+
+          <section class="legal-section" id="legal-basis">
+            <h2>5. Legal Basis for Processing</h2>
+            <p>
+              Where applicable data-protection law requires a legal basis (e.g. GDPR), we process
+              personal data to perform our contract with your organization (providing the
+              DIGITRACKER service), to comply with legal obligations (e.g. payroll and tax records),
+              and on the basis of legitimate interests such as securing our platform and improving
+              our products. Where consent is the applicable basis — for example, optional
+              integrations — you may withdraw it at any time as described in Section 13.
+            </p>
+          </section>
+
+          <section class="legal-section" id="sharing">
+            <h2>6. How We Share Information</h2>
+            <p>We do not sell your data. We share information only with:</p>
+            <ul>
+              <li><strong>Service providers</strong> who process data on our behalf under contract —
+              Supabase (database, authentication, file storage) and Stripe (payment processing).</li>
+              <li><strong>GoHighLevel / Digi5y AI-CRM</strong>, strictly to the extent needed to
+              operate an integration you or your administrator explicitly connected.</li>
+              <li><strong>Your own organization's administrators</strong>, who can see workforce data
+              for their own sub-account by design — this is core to how DIGITRACKER functions.</li>
+              <li><strong>Law enforcement or regulators</strong>, only where required by law or to
+              protect the rights, property, or safety of DIGI5Y, our users, or the public.</li>
+              <li><strong>A successor entity</strong>, in the event of a merger, acquisition, or sale
+              of assets — subject to this policy continuing to apply to your data.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="isolation">
+            <h2>7. Data Isolation Between Workspaces</h2>
+            <p>
+              DIGITRACKER is multi-tenant: each company ("sub-account") is technically isolated from
+              every other, including sub-accounts connected through the Digi5y AI-CRM. Row-level
+              security enforced at the database layer ensures a workspace's data — including its
+              GHL/AI-CRM connection, contacts, payroll, and leave records — is never visible to
+              another workspace.
+            </p>
+          </section>
+
+          <section class="legal-section" id="retention">
+            <h2>8. Data Retention</h2>
+            <p>
+              We retain account and work-activity data for as long as your workspace remains active,
+              plus a reasonable period afterward for legal, tax, and accounting purposes. Screen
+              captures are automatically purged after 30 days. If a GHL/AI-CRM integration is
+              disconnected, we delete the stored OAuth tokens immediately; previously synced contact
+              records remain until deleted by your administrator. If your workspace (sub-account) is
+              deleted by an administrator, associated user accounts and their work-activity data are
+              permanently removed, with the exception of financial transaction records and
+              HR-offboarding archive records, which we retain for legal and accounting purposes.
+            </p>
+          </section>
+
+          <section class="legal-section" id="security">
+            <h2>9. Security</h2>
+            <p>
+              OAuth tokens and other credentials are stored encrypted at rest and are never exposed
+              to the browser — all privileged operations (token exchange, refresh, and disconnect)
+              run through server-side functions using a scoped service role. Access to any
+              workspace's data requires authentication and is enforced by row-level security policies
+              scoped to that workspace. All traffic between your browser and our servers is
+              encrypted in transit (HTTPS/TLS).
+            </p>
+          </section>
+
+          <section class="legal-section" id="cookies">
+            <h2>10. Cookies &amp; Tracking</h2>
+            <p>
+              This marketing site (<code>digitracker.digi5y.co</code>) does not set analytics or
+              advertising cookies. The DIGITRACKER application
+              (<code>digitracker-app.digi5y.co</code>) uses only the minimum storage necessary to
+              keep you signed in — a session token managed by our authentication provider — and does
+              not use third-party advertising or cross-site tracking cookies.
+            </p>
+          </section>
+
+          <section class="legal-section" id="international">
+            <h2>11. International Data Transfers</h2>
+            <p>
+              Our infrastructure providers (Supabase, Stripe) may process and store data in regions
+              outside your own country. Where required, we rely on those providers' standard
+              contractual safeguards for cross-border data transfers.
+            </p>
+          </section>
+
+          <section class="legal-section" id="children">
+            <h2>12. Children's Privacy</h2>
+            <p>
+              DIGITRACKER is a workplace tool intended for use by employed adults and is not directed
+              at, or knowingly used to collect information from, children under 16. If you believe a
+              child has provided us with personal data, contact us using the details in Section 15
+              and we will remove it.
+            </p>
+          </section>
+
+          <section class="legal-section" id="choices">
+            <h2>13. Your Choices &amp; Rights</h2>
+            <ul>
+              <li>Workspace Admins can disconnect the GHL / Digi5y AI-CRM integration at any time
+              from Settings, which immediately revokes our stored access.</li>
+              <li>Uninstalling DIGITRACKER from your GHL Marketplace or Digi5y AI-CRM account
+              automatically removes our stored tokens for that location.</li>
+              <li>Depending on your jurisdiction, you may have the right to access, correct, export,
+              or request deletion of your personal data.</li>
+              <li>You may request export or deletion of your personal data by contacting us at the
+              address below; your workspace administrator can also action most requests directly
+              within the product.</li>
+            </ul>
+          </section>
+
+          <section class="legal-section" id="changes">
+            <h2>14. Changes to This Policy</h2>
+            <p>
+              We may update this policy from time to time. Material changes will be reflected by
+              updating the "Last updated" date at the top of this page; where a change materially
+              reduces your rights, we will take reasonable steps to notify affected workspace
+              Admins.
+            </p>
+          </section>
+
+          <section class="legal-section" id="contact">
+            <h2>15. Contact Us</h2>
+            <p>
+              Questions about this policy or your data can be sent to
+              <a href="mailto:admin@digi5y.co" style="color:var(--violet-hi);"> admin@digi5y.co</a>.
+            </p>
+          </section>
+
+          <p class="legal-notice">
+            This document is provided as a starting point for DIGITRACKER's general operation and
+            GHL Marketplace / Digi5y AI-CRM submission. It has not been reviewed by legal counsel —
+            please have it reviewed before relying on it for compliance purposes.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="../logo.png" alt="" aria-hidden="true" />
+          <span>DIGITRACKER by DIGI5Y</span>
+        </div>
+        <span>© <script>document.write(new Date().getFullYear())</script> DIGI5Y. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/digitracker_privacy_policy/">Privacy Policy</a>
+          <a href="https://digitracker-app.digi5y.co" style="opacity:.85;">Sign In →</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

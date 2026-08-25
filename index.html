@@ -201,6 +201,8 @@
     }
     .footer-brand { display: flex; align-items: center; gap: .5rem; }
     .footer-brand img { width: 1.25rem; height: 1.25rem; border-radius: .25rem; object-fit: contain; }
+    .footer-links { display: flex; gap: 1.25rem; }
+    .footer-links a:hover { color: var(--text); }
 
     /* ── Divider ── */
     .divider {
@@ -358,7 +360,10 @@
           <span>DIGITRACKER by DIGI5Y</span>
         </div>
         <span>© <script>document.write(new Date().getFullYear())</script> DIGI5Y. All rights reserved.</span>
-        <a href="https://digitracker-app.digi5y.co" style="color:inherit;opacity:.6;">Sign In →</a>
+        <div class="footer-links">
+          <a href="/digitracker_privacy_policy/">Privacy Policy</a>
+          <a href="https://digitracker-app.digi5y.co" style="opacity:.85;">Sign In →</a>
+        </div>
       </div>
     </div>
   </footer>
